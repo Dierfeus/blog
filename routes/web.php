@@ -13,3 +13,7 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('static.contact');
 });
+
+Route::post('/contact', function () {
+    return view('static.contact');
+});

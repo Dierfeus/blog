@@ -1,115 +1,369 @@
-body {
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #1f1f1f;
-    color: #e0e0e0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Segoe UI', 'Inter', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+    color: #b0b0b0;
+    transition: all 0.25s ease;
+}
+
+a:hover {
+    color: #ffffff;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 700;
+    line-height: 1.25;
 }
 
 header {
-    background-color: #2b2b2b;
-    padding: 25px 30px;
-    border-bottom: 2px solid #000;
+    background-color: #222222;
+    padding: 18px 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 10;
 }
 
 header .inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 1200px;
+    max-width: 1200px;
     margin: 0 auto;
-}
-
-.logo {
-    font-weight: bold;
-    font-size: 20px;
-    color: #ffffff;
-}
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    padding: 0 24px;
     display: flex;
-    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
-nav ul li a {
-    color: #cccccc;
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover {
+header .logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 700;
     color: #ffffff;
+    letter-spacing: 0.2px;
+}
+
+header nav {
+    display: inline-flex;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+header nav ul li a {
+    font-size: 16px;
+    color: #cccccc;
+    font-weight: 500;
+}
+
+header nav ul li a:hover {
+    color: #ff6b00;
 }
 
 .content {
-    min-height: 70vh;
-    padding: 30px;
-    width: 1200px;
+    flex: 1;
+    max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
+    padding: 30px 24px 50px;
+}
+
+/* Объединенный блок Hero */
+.hero,
+.content > div:first-child {
+    background-color: #262626;
+    position: relative;
+    border-radius: 10px;
+    padding: 70px 30px;
+    text-align: center;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.hero h1,
+.content > div:first-child h1 {
+    font-size: 42px;
+    margin-bottom: 14px;
+    letter-spacing: 0.3px;
+}
+
+.hero p,
+.content > div:first-child p {
+    font-size: 17px;
+    color: #dcdcdc;
+    margin-bottom: 28px;
+}
+
+/* Кнопки */
+.hero a,
+.hero button,
+.hero .btn,
+.content > div:first-child a,
+.content > div:first-child button,
+.main-block form button[type="submit"] {
+    display: inline-block;
+    background-color: #ff6b00;
+    color: #ffffff;
+    padding: 12px 34px;
+    border: none;
+    border-radius: 6px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color 0.25s ease, transform 0.1s ease;
+}
+
+.hero a:hover,
+.hero button:hover,
+.hero .btn:hover,
+.content > div:first-child a:hover,
+.content > div:first-child button:hover,
+.main-block form button[type="submit"]:hover {
+    background-color: #e65c00;
+    transform: translateY(-1px);
+}
+
+/* Сетки и контейнеры */
+.grid,
+.content > div:nth-child(2),
+.main-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
+    align-items: start;
+    max-width: 1200px;
+    margin: 20px auto;
 }
 
 .main-container {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
+    padding: 0 24px;
 }
 
-.main-block {
-    flex: 3;
-    background: #262626;
-    padding: 20px;
-    border-radius: 8px;
-}
-
+.card,
+.content > div:nth-child(2) > div,
+.main-block,
 .aside-block {
-    flex: 1;
+    background-color: #262626;
+    border-radius: 10px;
+    padding: 30px;
 }
 
-.aside-block h2 {
+.content > div:not(:first-child):not(.grid) {
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+/* Типографика карточек */
+.card h2,
+.content h2 {
+    font-size: 28px;
+    margin-bottom: 14px;
+}
+
+.main-block h1 {
+    font-size: 28px;
+    margin-bottom: 24px;
+}
+
+.card h3,
+.content h3 {
     font-size: 18px;
-    color: #ffffff;
-    border-bottom: 1px solid #444;
-    padding-bottom: 5px;
+    margin-top: 22px;
+    margin-bottom: 10px;
 }
 
-.aside-block h2:not(:first-child) {
-    margin-top: 25px; /* Разделяет блок «О компании» и «Совет дня» */
+.card h3:first-child,
+.content h3:first-child {
+    margin-top: 0;
 }
 
-.aside-block p {
-    font-size: 14px;
-    line-height: 1.5;
-    color: #b3b3b3;
+.card p,
+.content p,
+.aside-block {
+    font-size: 15px;
+    color: #c4c4c4;
+    margin-bottom: 12px;
+}
+
+.card p:last-child,
+.content p:last-child {
     margin-bottom: 0;
 }
 
-footer {
-    flex-shrink: 0; /* Запрещает подвалу сжиматься */
-    background-color: #2b2b2b;
-    color: #888888;
-    text-align: center;
-    padding: 20px;
-    font-size: 14px;
-    border-top: 1px solid #111111;
-    text-transform: capitalize; /* Делает первую букву заглавной */
+/* Формы */
+.main-block form label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #cccccc;
 }
 
+.main-block form input[type="text"],
+.main-block form input[type="email"],
+.main-block form textarea {
+    width: 100%;
+    margin-bottom: 18px;
+    padding: 12px 14px;
+    background-color: #1e1e1e;
+    border: 1px solid #3a3a3a;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 15px;
+    font-family: inherit;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
 
+.main-block form input[type="text"]:focus,
+.main-block form input[type="email"]:focus,
+.main-block form textarea:focus {
+    outline: none;
+    border-color: #ff6b00;
+    box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.2);
+}
 
-/* Неrо-блок */
-.hero {
-    position: relative;
-    height: 300px;
-    background: url('https://medium.com') no-repeat center/cover; /* Исправлено и дополнено */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    margin-bottom: 30px;
-    overflow: hidden;
-    background-blend-mode: multiply;
-    background-color: rgba(0, 0, 0, 0.8);
+.main-block form input::placeholder,
+.main-block form textarea::placeholder {
+    color: #666666;
+}
+
+.main-block form textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+/* Ошибки */
+.block-error {
+    background: #c23939;
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 6px;
+}
+
+.block-error li {
+    line-height: 1.7;
+    color: #e8e8e8;
+    font-size: 17px;
+}
+
+/* Посты */
+.post {
+    background: #0a0a0a;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.post h2 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #ffeb3b;
+}
+
+.post p {
+    font-size: 1rem;
+    color: #888888;
+}
+
+.post a {
+    display: inline-block;
+    background: #ffeb3b;
+    color: #000000;
+    padding: 10px 12px;
+    border-radius: 5px;
+}
+
+.post a:hover {
+    background-color: #bc9b00;
+    color: #000000;
+}
+
+/* Футер */
+footer {
+    border-top: 2px solid #000;
+    background-color: #2b2b2b;
+    text-align: center;
+    padding: 35px;
+    font-size: 16px;
+    color: #aaaaaa;
+}
+
+/* Адаптивность */
+@media (max-width: 900px) {
+    .grid,
+    .content > div:nth-child(2),
+    .main-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    header .logo {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    header nav ul {
+        gap: 18px;
+    }
+
+    .hero,
+    .content > div:first-child {
+        padding: 50px 20px;
+    }
+
+    .hero h1,
+    .content > div:first-child h1,
+    .main-block h1,
+    .card h2,
+    .content h2 {
+        font-size: 22px;
+    }
+
+    .hero p,
+    .content > div:first-child p {
+        font-size: 15px;
+    }
+
+    .content,
+    .main-container {
+        padding: 20px 16px 40px;
+    }
+
+    .main-block {
+        padding: 20px;
+    }
 }
