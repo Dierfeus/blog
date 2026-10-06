@@ -5,10 +5,11 @@
 @endsection
 
 @section('content')
+
     <div class="main-container">
         <div class="main-block">
             <h1>Contact page</h1>
-            <form action="/contact" method="POST">
+            <form action="{{ route('contact.post') }}" method="POST">
                 @csrf
 
                 <label for="name">Имя</label>
@@ -26,4 +27,14 @@
                 <button type="submit">Отправить</button>
             </form>
         </div>
+    @if($errors->any())
+            <div class="block-error">
+                <ul>
+                    @foreach($errors->all() as $err)
+                        <li>{{ $err }}</li>
+                    @endforeach
+                </ul>
+            </div>
+
+    @endif
 @endsection
